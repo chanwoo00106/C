@@ -156,10 +156,9 @@ void hourglass() {
 	// *******
 	//  *****
 	//   ***
-	//	  *
-	//	  *
-	//	 ***
-	//	*****
+	//    *
+	//   ***
+	//  *****
 	// *******
 	//*********
 	for (int i = 0; i < 5; i++) {
@@ -172,10 +171,41 @@ void hourglass() {
 		printf("\n");
 	}
 	for (int i = 0; i < 5; i++) {
+		if (i == 0) continue;
 		for (int j = 0; j < 4 - i; j++) {
 			printf(" ");
 		}
 		for (int j = 0; j < 2 * i + 1; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+}
+
+void diamond() {
+	//    *
+	//   ***
+	//  *****
+	// *******
+	//*********
+	// *******
+	//  *****
+	//   ***
+	//    *
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 4 - i; j++) {
+			printf(" ");
+		}
+		for (int j = 0; j < 2 * i + 1; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j <= i; j++) {
+			printf(" ");
+		}
+		for (int j = 7; j > 2 * i; j--) {
 			printf("*");
 		}
 		printf("\n");

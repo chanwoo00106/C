@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int isPrime(int);
+int isPrime2(int);
 
 int main() {
 	int num, result;
@@ -14,6 +15,21 @@ int main() {
 		printf("%d은/는 소수입니다.", num);
 	}
 	return 0;
+}
+
+void isPrime2(int a) {
+	int cnt;
+	for (int i = 2; i < a; i++) {
+		cnt = 0;
+		for (int j = 1; j <= i; j++) {
+
+			if (i % j == 0) {
+				cnt++;
+			}
+		}
+		if (cnt == 2) printf("%d ", i);
+	}
+
 }
 
 int isPrime(int a) {

@@ -26,7 +26,7 @@ void 관리비_평균() {
 }
 
 void score() {
-	int score[4][4] = { 0, };
+	int score[4][4] = { 0, };// 이렇게 초기화를 안하면 쓰레기 값이 들어있다
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {

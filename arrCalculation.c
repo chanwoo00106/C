@@ -26,7 +26,7 @@ void 관리비_평균() {
 }
 
 void score() {
-	int score[4][4];
+	int score[4][4] = { 0, };
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {

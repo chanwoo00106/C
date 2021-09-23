@@ -21,7 +21,7 @@
     <ClCompile Include="stack.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
+    <ClCompile Include="knowledge.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="queue.c">

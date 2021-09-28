@@ -10,15 +10,29 @@ typedef struct listnode {
 int main() {
 	node* head = NULL;
 	node* tail = NULL;
-	node* newnode = (node*)malloc(sizeof(node));
+	int n = 1;
 
-	newnode->data = 10;
-	newnode->link = NULL;
+	do {
+		scanf_s("%d", &n);
 
-	if (head == NULL) {
-		head = newnode;
+		if (n < 0) break;
+
+		node* newnode = (node*)malloc(sizeof(node));
+		newnode->data = n;
+		newnode->link = NULL;
+
+		if (head == NULL) head = newnode;
+		else tail->link = newnode;
 		tail = newnode;
+
+	} while (n > 0);
+
+	node* temp = head;
+	while (temp->link != NULL) {
+		printf("%d ", temp->data);
+		temp = temp->link;
 	}
-	printf("node");
+	printf("%d ", temp->data);
+
 	return 0;
 }

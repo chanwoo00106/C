@@ -12,7 +12,7 @@ int main() {
 	node* tail = NULL;
 	int n = 1;
 
-	do {
+	while (1) {	
 		scanf_s("%d", &n);
 
 		if (n < 0) break;
@@ -25,14 +25,13 @@ int main() {
 		else tail->link = newnode;
 		tail = newnode;
 
-	} while (n > 0);
+	}
 
 	node* temp = head;
-	while (temp->link != NULL) {
+	while (temp) {
 		printf("%d ", temp->data);
 		temp = temp->link;
 	}
-	printf("%d ", temp->data);
 
 	return 0;
 }

@@ -1,1 +1,3 @@
-﻿  자료구조.vcxproj -> D:\GitHub\C\자료구조\Debug\자료구조.exe
+﻿  listNodeDelete.c
+D:\GitHub\C\자료구조\자료구조\listNodeDelete.c(49,22): warning C4101: 'input' :참조되지 않은 지역 변수입니다.
+  자료구조.vcxproj -> D:\GitHub\C\자료구조\Debug\자료구조.exe

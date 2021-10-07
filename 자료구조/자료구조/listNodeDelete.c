@@ -9,44 +9,75 @@ typedef struct listnode {
 node* head = NULL;
 node* tail = NULL;
 
-void Delete(int cnt) {
+void Delete() {
 	int input;
-	printf("삭제할 부분을 입력 : ");
+	printf("삭제할 숫자를 입력 : ");
 	scanf_s("%d", &input);
 
-	if (cnt - 1 > input) { // 배열이 있는지 검사
-		node* temp = head;
-		node* del;
-		if (input != 0) {
-			while (input > 1) {
-				input--;
-				temp = temp->link;
-			}
-			del = temp->link;
-			temp->link = del->link;
-			free(del);
-		}
-		else {// 배열 맨 앞에 지우기
-			head = head->link;
-			free(temp);
-		}
+	node* temp = head;
+	node* del;
+
+	if (input == temp->data) { // input에 값이 첫 번째 데이터를 가르킬 때
+		head = head->link;
+		free(temp);
+		return;
 	}
-	else if (cnt - 1 == input) { // 가장 끝 배열 지우기
-		node* temp = head;
-		while (input > 1) {
-			input--;
-			temp = temp->link;
+
+	while (temp->link->data != input) { // 탐색
+		if (temp->link->link == NULL) {
+			printf("찾을 수 없습니다.\n");
+			return;
 		}
-		free(temp->link);
-		temp->link = NULL;
-		tail = temp;
+		temp = temp->link;
 	}
-	else printf("삭제를 할 수 없습니다.\n");
+
+	if (temp->link == NULL) { // head에 link가 없을 때
+		head = NULL;
+		return;
+	}
+
+	del = temp->link;
+	temp->link = del->link;
+	free(del);
+}
+
+void Sort(node* newnode) {
+	node* temp = head;
+	if (head->data > newnode->data) {
+		newnode->link = head;
+		head = newnode;
+		return;
+	}
+
+	while (temp->link) {
+		if (temp->data <= newnode->data && temp->link->data >= newnode->data) {
+			newnode->link = temp->link;
+			temp->link = newnode;
+			return;
+		}
+		temp = temp->link;
+	}
+	temp->link = newnode;
+
+	tail = newnode;
+	return;
+}
+
+void print() {
+	if (head == NULL) printf("값이 없습니다.");
+
+	node* temp = head;
+	while (temp) {
+		printf("%d ", temp->data);
+		temp = temp->link;
+	}
+	printf("\n");
+	return;
 }
 
 
 int main() {
-	int n = 1, cnt = 0, input;
+	int n;
 
 	while (1) {
 		scanf_s("%d", &n);
@@ -58,19 +89,20 @@ int main() {
 		newnode->link = NULL;
 
 		if (head == NULL) head = newnode;
-		else tail->link = newnode;
-		tail = newnode;
-		cnt++;
+		else Sort(newnode); // 정렬
 	}
 
 	// 삭제하는 부분
-	Delete(cnt);
+	do {
+		print();
+		Delete();
+		if (head == NULL) break;
+		printf("계속 삭제하시겠습니까? : ");
+		scanf_s("%d", &n);
+		printf("\n");
+	} while (n);
 
-	node* temp = head;
-	while (temp) {
-		printf("%d ", temp->data);
-		temp = temp->link;
-	}
+	print();
 
 	return 0;
 }

@@ -41,6 +41,31 @@ void Delete() {
 	free(del);
 }
 
+void Sort(node* newnode) {
+	node* temp = head;
+	// newnode가 맨 앞에 올 때
+	if (head->data > newnode->data) {
+		newnode->link = head;
+		head = newnode;
+		return;
+	}
+
+	while (temp->link) {
+		// newnode가 연결리스트 사이에 올 때
+		if (temp->data <= newnode->data && temp->link->data >= newnode->data) {
+			newnode->link = temp->link;
+			temp->link = newnode;
+			return;
+		}
+		temp = temp->link;
+	}
+	// 마지막에 올 때
+	temp->link = newnode;
+
+	tail = newnode;
+	return;
+}
+
 void print() {
 	if (head == NULL) printf("값이 없습니다.");
 
@@ -67,8 +92,7 @@ int main() {
 		newnode->link = NULL;
 
 		if (head == NULL) head = newnode;
-		else tail->link = newnode;
-		tail = newnode;
+		Sort(newnode);
 	}
 
 	// 삭제하는 부분

@@ -39,5 +39,11 @@
     <ClCompile Include="listNodeDelete.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="listNodeSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="listNodeCircle.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -92,7 +92,7 @@ int main() {
 		newnode->link = NULL;
 
 		if (head == NULL) head = newnode;
-		Sort(newnode);
+		else Sort(newnode);
 	}
 
 	// 삭제하는 부분

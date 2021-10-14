@@ -70,12 +70,16 @@ void Sort(node* newnode) {
 void print() {
 	if (head == NULL) printf("값이 없습니다.");
 
+	int full, cnt = 1;
+	printf("몇 번 출력? : ");
+	scanf_s("%d", &full);
+
 	node* temp = head;
-	while (temp) {
-		printf("%d ", temp->data);
+	while (cnt < full) {
 		temp = temp->link;
-		if (temp == head) break;
+		cnt++;
 	}
+	printf("%d ", temp->data);
 	printf("\n");
 	return;
 }
@@ -90,23 +94,25 @@ int main() {
 		if (n < 0) break;
 
 		node* newnode = (node*)malloc(sizeof(node));
-		newnode->data = n;
+		newnode->data = n;	
 		newnode->link = NULL;
 
 		if (head == NULL) head = newnode;
+		//else tail->link = newnode;
+		//tail = newnode;
 		else Sort(newnode);
 	}
 	tail->link = head;// 앞이랑 끝을 연결하기
 
 	// 삭제하는 부분
-	do {
-		print();
-		Delete();
-		if (head == NULL) break;
-		printf("계속 삭제하시겠습니까? : ");
-		scanf_s("%d", &n);
-		printf("\n");
-	} while (n);
+	//do {
+	//	print();
+	//	Delete();
+	//	if (head == NULL) break;
+	//	printf("계속 삭제하시겠습니까? : ");
+	//	scanf_s("%d", &n);
+	//	printf("\n");
+	//} while (n);
 
 	print();
 

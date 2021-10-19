@@ -51,5 +51,8 @@
     <ClCompile Include="DoublyLinkedListDelete.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="DoublyLinkedListInsert.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -58,7 +58,7 @@ void Sort(node* newnode) {
 		newnode->prev = tail;
 		tail = tail->next;
 	}
-	else {
+	else { // 새로운 데이터가 리스트 사이에 있을 때
 		node* temp = head;
 		node* back;
 		while (!(temp->data <= newnode->data && newnode->data <= temp->next->data)) temp = temp->next;

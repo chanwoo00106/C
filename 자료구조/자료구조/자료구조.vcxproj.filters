@@ -51,7 +51,10 @@
     <ClCompile Include="DoublyLinkedListDelete.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="DoublyLinkedListInsert.c">
+    <ClCompile Include="DoublyLinkedListSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="binary_tree.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
